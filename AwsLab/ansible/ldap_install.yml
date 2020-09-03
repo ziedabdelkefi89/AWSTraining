@@ -1,0 +1,22 @@
+- hosts: servers
+  roles:
+    - criecm.openldap
+  vars:
+    openldap_schemas:
+      - core
+      - cosine
+      - nis
+      - inetorgperson
+      - rfc2739
+    openldap_bases:
+      rootdn: cn=admin
+      suffix: dc=at,dc=home
+      includes: [ slapd.access ]
+      indexes:
+        - [ "uid,uidNumber,gidNumber,memberUID", "pres,eq" ]
+      slave:
+        rid: 675
+        provider: ldaps://master.ldap.univ.fr:636
+        binddn: cn=bind,dc=dn
+        credentials: bindpw
+        bindmethod: simple

@@ -1,2 +1,11 @@
-[linux]
+[bastion2]
 ec2-user@15.236.204.91
+[app_servers]
+ec2-user@10.0.7.202
+ec2-user@10.0.8.230
+[webservers]
+ec2-user@10.0.3.93
+ec2-user@10.0.4.29
+[ldap_kerberos]
+10.0.5.197
+10.0.6.123
